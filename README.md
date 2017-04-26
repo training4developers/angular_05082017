@@ -1,4 +1,4 @@
-# Welcome to Comprehensive Angular
+# Welcome to Introduction to Angular
 
 ## Instructor
 
@@ -8,24 +8,24 @@ Eric Greene - [http://t4d.io](http://t4d.io) - [LinkedIn](https://www.linkedin.c
 
 Class:
 
-- Monday through Friday: 9am to 5pm
+- Monday through Friday: 9am to 5:30pm (half days for each group)
+- Morning Session: 9am to 1pm
+- Lunch: 1pm to 1:30pm
+- Afternoon Session: 1:30pm to 5:30pm
 
 Breaks:
 
-- Morning: 10:25am to 10:35am
-- Lunch: Noon to 1pm
-- Afternoon #1: 2:15pm to 2:25pm
-- Afternoon #2: 3:40pm to 3:50pm
+1 break, halfway through each session
 
 ## Course Outline
 
 TypeScript & JavaScript topics will be included as needed into the Angular content
 
-- Day 1 - Introduction to Components, Pipes, Event Handling, Directives & Routing
-- Day 2 - Custom Pipes, Template & Reactive Forms, Form Validation, Custom Validators
-- Day 3 - Composing Components 
-- Day 4 - Advanced Services, Http Service & REST Services, Observables/Promises, Web Sockets
-- Day 5 - Modules, Advanced Routing, Structural and Attribute Directives, Unit Testing
+- Day 1 - Introduction to Components, Event Handling, Directives, Template Forms
+- Day 2 - Modules, Pipes, Reactive Forms, Form Validation
+- Day 3 - Composing Components
+- Day 4 - Services, HTTP + REST Services
+- Day 5 - jQuery, NgBootstrap, Unit Testing
 
 ## Links
 

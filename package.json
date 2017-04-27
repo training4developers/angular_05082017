@@ -59,6 +59,7 @@
     "@ngrx/store": "^2.2.2",
     "@types/core-js": "^0.9.41",
     "@types/jasmine": "^2.5.41",
+    "@types/jquery": "^2.0.41",
     "@types/node": "^7.0.12",
     "autoprefixer": "^6.3.7",
     "bootstrap": "4.0.0-alpha.6",

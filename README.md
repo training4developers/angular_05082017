@@ -8,7 +8,7 @@ Eric Greene - [http://t4d.io](http://t4d.io) - [LinkedIn](https://www.linkedin.c
 
 Class:
 
-- Monday through Friday: 9am to 5:30pm (half days for each group)
+- Monday through Friday: 8am to 5pm (half days for each group)
 - Morning Session: 8am to 12pm
 - Lunch: 12pm to 1pm
 - Afternoon Session: 1pm to 5pm

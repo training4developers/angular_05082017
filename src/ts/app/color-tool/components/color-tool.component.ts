@@ -11,9 +11,19 @@ import { Color } from "../models/color";
         <ul>
             <li *ngFor="let color of colors">{{color.name}}</li>
         </ul>
+        <form novalidate>
+            <div>
+                <label for="new-color-input">New Color</label>
+                <input type="text" id="new-color-input"
+                    name="newColorInput" [(ngModel)]="newColor">
+            </div>
+            <button type="button" (click)="addColor()">Add Color</button>
+        </form>
     `,
 })
 export class ColorToolComponent {
+
+    public newColor: string = "";
 
     public colors: Color[] = [
         { id: 1, name: "red" },
@@ -23,6 +33,19 @@ export class ColorToolComponent {
         { id: 5, name: "saffron" },
         { id: 6, name: "blue" },
     ];
+
+    public addColor() {
+
+        const nextIndex = this.colors.reduce(
+            (maxId, color) => Math.max(maxId, color.id), 0) + 1;
+
+        console.log(nextIndex);
+
+        this.colors = this.colors.concat({
+            id: nextIndex,
+            name: this.newColor,
+        });
+    }
 
 
 }

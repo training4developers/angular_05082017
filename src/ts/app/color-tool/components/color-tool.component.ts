@@ -10,17 +10,29 @@ import { Color } from "../models/color";
             <small>{{'Some interesting text goes here.' | ellipsis:3}}</small>
         </header>
         <ul>
-            <li *ngFor="let color of colors | slice:1:3">{{color.name | capitalize}}</li>
+            <li *ngFor="let color of colors | slice:1">{{color.name | capitalize}}</li>
         </ul>
         <form novalidate>
             <div>
+                <span *ngIf="newColorInputRef.invalid">*</span>
                 <label for="new-color-input">New Color</label>
                 <input type="text" id="new-color-input"
-                    name="newColorInput" [(ngModel)]="newColor">
+                    name="newColorInput" [(ngModel)]="newColor"
+                    required #newColorInputRef="ngModel">
+                <span>
+                    New Color is Required.
+                </span>
             </div>
             <button type="button" (click)="addColor()">Add Color</button>
         </form>
+        <div>{{newColor}}</div>
     `,
+    styles: [
+        "input.ng-invalid.ng-touched { border: 1px solid red; }",
+        // "input + span { float:left; }",
+        "input.ng-invalid.ng-touched ~ span { display:inline; }",
+        "input ~ span { display:none; }",
+    ],
 })
 export class ColorToolComponent {
 
@@ -34,6 +46,7 @@ export class ColorToolComponent {
         { id: 5, name: "saffron" },
         { id: 6, name: "blue" },
     ];
+
 
     public addColor() {
 

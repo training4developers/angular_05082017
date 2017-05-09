@@ -7,9 +7,10 @@ import { Color } from "../models/color";
     template: `
         <header>
             <h1>Color Tool</h1>
+            <small>{{'Some interesting text goes here.' | ellipsis:3}}</small>
         </header>
         <ul>
-            <li *ngFor="let color of colors">{{color.name | capitalize}}</li>
+            <li *ngFor="let color of colors | slice:1:3">{{color.name | capitalize}}</li>
         </ul>
         <form novalidate>
             <div>

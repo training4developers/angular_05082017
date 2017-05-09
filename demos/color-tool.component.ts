@@ -1,5 +1,4 @@
 import { Component } from "@angular/core";
-import { FormControl, FormGroup } from "@angular/forms";
 
 import { Color } from "../models/color";
 
@@ -13,21 +12,32 @@ import { Color } from "../models/color";
         <ul>
             <li *ngFor="let color of colors | slice:1">{{color.name | capitalize}}</li>
         </ul>
-        <form novalidate [formGroup]="newColorForm">
+        <form novalidate>
             <div>
+                <span *ngIf="newColorInputRef.invalid">*</span>
                 <label for="new-color-input">New Color</label>
                 <input type="text" id="new-color-input"
-                    formControlName="newColorInput">
+                    name="newColorInput" [(ngModel)]="newColor"
+                    required minlength="3" #newColorInputRef="ngModel">
+                <span *ngIf="newColorInputRef.errors && newColorInputRef.errors.required">
+                    New Color is Required.
+                </span>
+                <span *ngIf="newColorInputRef.errors && newColorInputRef.errors.minlength">
+                    New Color has a Minimum Length of 3.
+                </span>
             </div>
             <button type="button" (click)="addColor()">Add Color</button>
         </form>
+        <div>{{newColor}}</div>
     `,
+    styles: [
+        "input.ng-invalid.ng-touched { border: 1px solid red; }",
+        // "input + span { float:left; }",
+        "input.ng-invalid.ng-touched ~ span { display:inline; }",
+        "input ~ span { display:none; }",
+    ],
 })
 export class ColorToolComponent {
-
-    public newColorForm = new FormGroup({
-        newColorInput: new FormControl(""),
-    });
 
     public newColor: string = "";
 
@@ -46,11 +56,11 @@ export class ColorToolComponent {
         const nextIndex = this.colors.reduce(
             (maxId, color) => Math.max(maxId, color.id), 0) + 1;
 
-        console.log(this.newColorForm.value);
+        console.log(nextIndex);
 
         this.colors = this.colors.concat({
             id: nextIndex,
-            name: this.newColorForm.value.newColorInput,
+            name: this.newColor,
         });
     }
 

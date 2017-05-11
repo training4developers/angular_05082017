@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { FormControl, FormGroup } from "@angular/forms";
 
 import { Color } from "../models/color";
@@ -12,11 +12,11 @@ import { ColorsService } from "../services/colors.service";
         <color-form (onSaveColor)="addColor($event)"></color-form>
     `,
 })
-export class ColorToolComponent {
+export class ColorToolComponent implements OnInit {
 
     public toolHeader = "Color Tool";
 
-    public colors: Color[] = this.colorsSvc.getAll();
+    public colors: Color[] = [];
 
     // private colorsSvc: ColorsService;
 
@@ -28,12 +28,20 @@ export class ColorToolComponent {
         private colorsSvc: ColorsService,
     ) { }
 
+    public ngOnInit() {
+
+        this.colorsSvc.getAll().then((colors) => {
+            this.colors = colors;
+        });
+
+    }
+
     public get colorNames() {
         return this.colors.map((color) => color.name);
     }
 
     public addColor(newColor: string) {
-        this.colors = this.colorsSvc.append({ name: newColor }).getAll();
+        // this.colors = this.colorsSvc.append({ name: newColor }).getAll();
     }
 
 

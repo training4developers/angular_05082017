@@ -1,4 +1,12 @@
 {
+  "colors": [
+        {"id":1,"name":"red"},
+        {"id":2,"name":"gold"},
+        {"id":3,"name":"green"},
+        {"id":4,"name":"white"},
+        {"id":5,"name":"saffron"},
+        {"id":6,"name":"blue"}
+    ],
   "owners": [
     {
       "id": 1,

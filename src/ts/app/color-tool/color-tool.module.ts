@@ -3,10 +3,14 @@ import { CommonModule } from "@angular/common";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 import { SharedModule } from "../shared/shared.module";
-import { ColorToolComponent } from "./components/color-tool.component";
-import { ColorFormComponent } from "./components/color-form.component";
+
+import { ColorsService } from "./services/colors.service";
+
 import { CapitalizePipe } from "./pipes/capitalize.pipe";
 import { EllipsisPipe } from "./pipes/ellipsis.pipe";
+
+import { ColorToolComponent } from "./components/color-tool.component";
+import { ColorFormComponent } from "./components/color-form.component";
 
 @NgModule({
     imports: [ CommonModule, FormsModule, ReactiveFormsModule, SharedModule ],
@@ -17,5 +21,6 @@ import { EllipsisPipe } from "./pipes/ellipsis.pipe";
         EllipsisPipe,
     ],
     exports: [ ColorToolComponent ],
+    providers: [ ColorsService ],
 })
 export class ColorToolModule { }
